@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .logo{
+            background-color:#8d004d;
+            display: flex;
+            justify-content: space-between;
+        }
+        .cart{
+            
+            color: palevioletred;
+            font-weight: bold;
+            ;
+        }
+        .flower-shop{
+            background-color: #E7C1DD;
+            padding: 9px;
+        }
+    
+        .menu{
+            background-color: #4f0026;
+            color: white;
+            margin-inline: 10px;
+            font-weight: bold;
+            font-family: arial, sans-serif;
+            padding: 12px 20px;
+        }
+        .bgclr{
+            color: white;
+        }
+        a {
+            color: #ff99cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .nav {
+            background-color: #4a0226;
+            display: flex;
+            justify-content: flex-start;
+            list-style: none;
+            border-bottom: 3px solid #310118;
+        }
+        .nav li a {
+            display: block;
+            padding: 12px 24px;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 12px;
+            border-right: 1px solid #5d0531;
+        }
+        .nav li a:hover, .nav li.active a {
+            background-color: #5d0531;
+            text-decoration: none;
+        }
+        /* --- Content Layout --- */
+        .main-content {
+            padding: 25px;
+            gap: 25px;
+            background-color: #5d0531;
+            
+        }
+        .left-column {
+            flex: 3;
+            
+        }
+        .right-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 116%;
+        }
+
+        h2.section-title {
+            font-size: 22px;
+            font-weight: normal;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        .intro-text {
+            margin-bottom: 30px;
+            font-size: 12px;
+            text-align: justify;
+            color: #ffffff;
+        }
+        .sub-heading {
+            background-color: #4a0226;
+            padding: 8px 12px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            width: 42%;
+        }
+
+        /* --- Product Grid --- */
+        .product-grid {
+            display: flex;
+            gap: 15px;
+            width: min-content;
+        }
+        .product-card {
+            flex: 1;
+            background-color: transparent;
+        }
+        .product-card h4 {
+            background-color: #bc3d7a;
+            padding: 6px 10px;
+            font-size: 13px;
+            font-weight: normal;
+        }
+        .product-image-placeholder {
+            background-color: #ffffff;
+            height: 150px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999999;
+            font-size: 40px;
+            border: 1px solid #a01c59;
+        }
+        .product-card p {
+            font-size: 11px;
+            margin-bottom: 10px;
+            height: 50px;
+            overflow: hidden;
+        }
+        .product-price {
+            margin-bottom: 10px;
+            display: block;
+        }
+        .product-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        .btn {
+            background-color: #bc3d7a;
+            color: #ffffff;
+            padding: 3px 8px;
+            font-size: 11px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #d64f8f;
+        }
+        .sidebar-widget {
+            background-color: #bc3d7a;
+            border: 1px solid #a01c59;
+            padding: 15px;
+            width: 14%;
+        }
+        .sidebar-widget h3 {
+            font-size: 14px;
+            margin-bottom: 12px;
+            font-weight: normal;
+            border-bottom: 1px solid #d64f8f;
+            padding-bottom: 5px;
+            background-color: #a01c59;
+        }
+        /* Search Widget */
+        .search-box input[type="text"] {
+            width: 100%;
+            padding: 4px;
+            margin-bottom: 8px;
+            border: 1px solid #999;
+        }
+        .search-box button {
+            background-color: #e25c9d;
+            border: 1px solid #ffffff;
+            color: #4a0226;
+            padding: 2px 10px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        /* Categories Widget */
+        .categories-list {
+            list-style: none;
+        }
+        .categories-list li {
+            padding: 4px 0;
+            border-bottom: 1px dashed #d64f8f;
+            font-size: 11px;
+        }
+        .categories-list li::before {
+            font-size: 9px;
+        }
+        .categories-list li a {
+            color: #ffffff;
+        }
+        .right-column{
+            margin-top: -589px;
+            margin-left: 1117px;
+            margin-right: -1055px;
+        }
+        /* Validation Widget */
+        .validation-badges {
+            display: flex;
+            gap: 10px;
+            margin-top: 3px;
+        }
+        .badge-placeholder {
+            background-color: #ffffff;
+            color: #333;
+            padding: 2px 5px;
+            font-size: 10px;
+            font-weight: bold;
+            border: 1px solid #999;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+                /* --- Footer Section --- */
+        .footer {
+            background-color: #2b0116;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            border-top: 5px solid #4a0226;
+        }
+        .payment-methods {
+            display: flex;
+            gap: 8px;
+        }
+        .payment-card {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 3px 8px;
+            font-weight: bold;
+            border-radius: 3px;
+            font-style: italic;
+            font-size: 12px;
+        }
+        .footer-links {
+            text-align: right;
+            color: #888888;
+        }
+        .footer-links a {
+            color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+    
+    <div >
+        <div style="font-family: monospace;">
+        <img src="images/templatemo_flag_01.gif">
+        <img src="images/templatemo_flag_02.gif">
+        <img src="images/templatemo_flag_03.gif">
+        <img src="images/templatemo_flag_04.gif">
+        <img src="images/templatemo_flag_05.gif">
+    </div>
+    </div>
+    <div class="cart" >
+        Shopping Cart(3.items)
+    </div>
+</div>
+
+<div class="flower-shop" style="display: flex;">
+
+    <div>
+    <img src="images/templatemo_site_header.jpg">
+    </div>
+    
+    <img  style="margin-left: 944px; margin-block: -9px;"
+src="images/templatemo_header_bg.jpg">
+    
+</div>
+
+<div style="display: flex;" >
+    <div>
+    <img src="images/templatemo_banner_image.jpg">
+    </div>
+    <div style="margin-left: 625px;">
+    <img src="images/templatemo_banner_bg.jpg">
+    </div>
+</div>
+
+<div>
+    <ul class="nav">
+        <li><a class="Active" href="#">Home</a></li>
+        <li><a class="bgclr" href="#">Features</a></li>
+        <li><a class="bgclr" href="#">Gallery</a></li>
+        <li><a class="bgclr" href="#">Templates</a></li>
+        <li><a class="bgclr" href="#">About Us</a></li>
+        <li><a class="bgclr" href="#">Contact Us</a></li>
+    </ul>
+    
+<div class="main-content">
+            
+            <div class="left-column">
+                <h2 class="section-title">Welcome to Our Flower Site</h2>
+                <p class="intro-text">
+                    This is a <a href="#">free CSS template</a> provided by TemplateMo.com website. You may download, modify and apply this <br> CSS layout for your personal or business websites. Credit goes to <a href="#">PublicDomainPictures</a> for photos.
+                    <br><br>
+                    Aliquam tristique lacus in sapien. Suspendisse potenti. Ut sed pede. Nullam vitae tellus. Sed ultrices. Lorem <br> ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<br> Nunc quis sem nec tellus blandit tincidunt. Aliquam tristique lacus in sapien. Suspendisse potenti. Ut sed pede.<br> Nullam vitae tellus. Sed ultrices. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                </p>
+            </div>
+<div class="sub-heading" style="color: white;">New Products</div>
+
+                <div class="product-grid">
+                    
+                    <div class="product-card">
+                        <h4 style="color: white;">Product One</h4>
+                        <div class="product-image-placeholder"><img src="images/templatemo_image_01.jpg"></div>
+                        <p style="color: white;">Aliquam tristique lacus in sapien. Suspendisse potenti.</p>
+                        <span class="product-price" style="color: #ffffff;">PRICE: $14.00</span>
+                        <div class="product-buttons">
+                            <button class="btn">Buy Now</button>
+                            <button class="btn">Details</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <h4 style="color: white;">Product Title</h4>
+                        <div class="product-image-placeholder"><img src="images/templatemo_image_02.jpg"></div>
+                        <p style="color: white;">Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
+                        <span class="product-price" style="color: #ffffff;" >PRICE: $18.00</span>
+                        <div class="product-buttons">
+                            <button class="btn">Buy Now</button>
+                            <button class="btn">Details</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <h4 style="color: white;">Product Title</h4>
+                        <div class="product-image-placeholder"><img src="images/templatemo_image_03.jpg"></div>
+                        <p style="color: white;">Suspendisse potenti. Ut sed pede. Nullam vitae tellus.</p>
+                        <span class="product-price" style="color: #ffffff;">PRICE: $26.00</span>
+                        <div class="product-buttons">
+                            <button class="btn">Buy Now</button>
+                            <button class="btn">Details</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="right-column">
+                
+                <div class="sidebar-widget search-box">
+                    <h3 style="background-color: #a01c59; color: white;">Search</h3>
+                    <input type="text" name="search">
+                    <button type="button" style="background-color: grey; color: black;">Search</button>
+                </div>
+                <div class="sidebar-widget">
+                    <h3 style="background-color: #a01c59; color: white;" >Categories</h3>
+                    <ul class="categories-list">
+                        <li><a href="#">Artificial and Silk</a></li>
+                        <li><a href="#">Dried and Preserved</a></li>
+                        <li><a href="#">Floral</a></li>
+                        <li><a href="#">Fresh Cut</a></li>
+                        <li><a href="#">Gardens</a></li>
+                        <li><a href="#">Gifts</a></li>
+                        <li><a href="#">Nurseries</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Weddings</a></li>
+                        <li><a href="#">Wholesale</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3>W3C Validations</h3>
+                    <div class="validation-badges">
+                        <div class="badge-placeholder"><span style="color:blue">W3C</span> <span style="font-size:9px; background:#ffcc00; padding:1px;">XHTML 1.0</span></div>
+                        <div class="badge-placeholder"><span style="color:blue">W3C</span> <span style="font-size:9px; background:#00ccff; padding:1px;">CSS</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer">
+            <div class="payment-methods">
+                <div><img src="images/mastercard.gif"></div>
+                <div><img src="images/visa.gif"></div>
+                <div><img src="images/paypal.gif"></div>
+                <div><img src="images/verisignsecured.gif"></div>
+            </div>
+            <div class="footer-links">
+                Copyright © 2026 <a href="#">Your Company Name</a><br>
+                <a href="#">Website Templates</a> by <a href="#">Free CSS Templates</a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    
+</body>
+</html>
